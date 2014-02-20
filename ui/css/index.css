@@ -1,0 +1,452 @@
+/* 
+    Document   : index
+    Created on : 10-Apr-2012, 20:17:12
+    Author     : plutoless
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+#index-wrap{
+    position: relative;
+    overflow: visible;
+    width: 800px;
+    height: 500px;
+    margin: 20px auto;
+    background: #eff0ec;
+    background: -webkit-linear-gradient(top, #f8f9f6 0%,#ecebe6 100%);
+    -webkit-box-shadow: inset 0px -1px 0px 1px rgba(255, 255, 255, 0.3);
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 6px 8px #777;
+    z-index: 0;
+}
+
+#index-wrap .screen{
+    position: relative;
+    width: 780px;
+    height: 264px;
+    top: 10px;
+    left: 10px;
+    color: #3a3a3a;
+    font-family: "Segoe Lt",Helvetica, serif;
+    overflow: hidden;
+    /*background-color: #2ab7ec;*/
+    box-shadow: inset 0px 0px 1px 1px rgba(0,0,0,0.3);
+    -webkit-box-shadow: inset 0px 0px 1px 1px rgba(0,0,0,0.3);
+    -moz-box-shadow: inset 0px 0px 1px 1px rgba(0,0,0,0.3);
+}
+
+#index-wrap .screen-index{
+    position: absolute;
+    margin: 0 !important;
+    left: -110px;
+    top: -368px;
+    width: 1000px;
+    height: 1000px;
+    z-index: -1;
+    text-align: center;
+    font-size: 0;
+}
+
+.screen-index .screen-index-tips{
+    position: absolute;
+    top: 415px;
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    display: none;
+    font-family: "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+}
+
+.screen-index .screen-index-tips .avatar-wrap{
+    position: relative;
+}
+
+.avatar-wrap .msg-box-wrap{
+}
+
+.avatar-wrap .msg-box{
+    position:absolute;
+    min-width: 32px;
+    width: auto;
+    max-width: 250px;
+    z-index: 0;
+    text-align: center;
+    word-wrap: break-word;
+    background-color: #ff6860;
+    height: auto;
+    left: 540px;
+    bottom: 70px;
+}
+
+.avatar-wrap .msg-box-tri{
+    position: absolute;
+    width: 0; 
+    height: 0; 
+    border-top: 10px solid transparent;
+    border-bottom: 0px solid transparent;
+    border-right:10px solid #ff6860;
+    left: 532px;
+    bottom: 77px;
+    z-index: 1;
+}
+
+.avatar-wrap .msg-box span{
+    text-align: left;
+    display: block;
+    white-space: pre;
+    padding: 7px 15px;
+    color: white;
+    font-size: 11px;
+    font-family: "Helvetica Neue", Helvetica, "Microsoft Yahei", Arial, Geneva, sans-serif;
+}
+
+.screen-index-tips .news{
+    font-size: 11px;
+    font-family: "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+    padding: 0;
+    height: 21px;
+    overflow: hidden;
+}
+
+.screen-index-tips .news li{
+    height: 21px;
+}
+
+
+
+.screen-index .screen-index-inner{
+    width: 1000px;
+    height: 1000px;
+    display: inline-block;
+    background: white;
+    -webkit-border-radius: 999px;
+    -moz-border-radius: 999px;
+    -ms-border-radius: 999px;
+    -o-border-radius: 999px;
+    border-radius: 999px;
+    
+}
+
+.screen-index .screen-logo{
+    position: absolute;
+    width: 176px;
+    height: 176px;
+    left: 412px;
+    top: 450px;
+    display: none;
+}
+
+.screen-logo img{
+    width: 175px;
+    height: 175px;
+    margin: 0px;
+}
+
+#index-wrap .screen-index-back{
+    position: absolute;
+    margin: 0 !important;
+    width: 780px;
+    height: 265px;
+    background: #fe6a84;
+    /*
+    background: url(../images/wallpaper/default1.jpg) no-repeat center center;
+    background-size: 780px auto;
+    background-position-y: -100px;  */
+    z-index: -10;
+    font-size: 0;
+}
+
+#index-wrap .screen-index-back .screen-back-widgets{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+
+.screen-back-widgets .battery-wrap{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 10;
+}
+
+.screen-back-widgets .calendar-wrap{
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+    color:white;
+    font-size: 28px;
+    font-family: "Segoe Lt",Helvetica, serif;
+    z-index: -1;
+}
+
+.screen-back-widgets .input-wrap{
+    display: inline;
+    position: absolute;
+    bottom: 0;
+    font-family: "Segoe",Helvetica, serif;
+    font-size: 24px;
+    color: white;
+    z-index: 6;
+    text-shadow: 1px 1px 1px rgba(0,0,0, 0.3);
+}
+
+.input-wrap ul{
+    margin: 0;
+    padding: 0 10px 10px 0;
+}
+
+.input-wrap li{
+    display: inline;
+    padding-bottom: 10px;
+}
+
+.input-wrap li:first-child{
+    padding-left: 10px;
+}
+
+.input-wrap li:last-child{
+}
+
+.screen-back-widgets .bg-wrap{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /*left: 100%;*/
+    top: 100%;
+    z-index: 5;
+    background:#7ad2ea;
+    /*
+    background: url(../images/wallpaper/default_b.jpg) no-repeat center center;
+    background-size: 780px auto;
+    background-position-y: -100px;*/
+}
+
+.screen-back-widgets .subpage-wrap{
+    position: absolute;
+    left: 0;
+    height: 0;
+    width: 780px;
+    z-index: 15;
+    background: #fff;
+    overflow: hidden;
+}
+
+#index-wrap .screen-index-float{
+    position: absolute;
+    margin: 0 !important;
+    width: 780px;
+    height: 265px;
+    background: transparent;
+    z-index: 10;
+    font-size: 0;
+}
+
+.screen-index-float .screen-front-widgets{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.screen-front-widgets .menu-wrap{
+    position: absolute;
+    width: 780px;
+    text-align: center;
+    top: 90px;
+    font-size: 14px;
+    font-family: "Segoe",Helvetica, serif;
+    text-shadow: 1px 1px 1px rgba(0,0,0, 0.3);
+    color: white;
+    display: none;
+}
+
+.menu-wrap .menu-element-wrap{
+    display: inline-block;
+    margin: 20px 10px 0 10px;
+    display: inline-block;
+}
+
+.menu-element-wrap .menu-element-text{
+    margin-top:-5px;
+}
+
+.menu-wrap .menu-message{
+    margin-top: 50px;
+}
+
+
+
+#index-wrap .key-board{
+    position: absolute;
+    width: 800px;
+    height: auto;
+    color: #6c6c6c;
+    top: 285px;
+    font-family: "Microsoft Yahei",
+        Helvetica, sans-serif;
+    overflow: hidden;
+    z-index: 1;
+    -webkit-border-radius: 0 0 8px 8px;
+    -moz-border-radius: 0 0 8px 8px;
+    -ms-border-radius: 0 0 8px 8px;
+    -o-border-radius: 0 0 8px 8px;
+    border-radius: 0 0 8px 8px;
+}
+
+
+
+
+
+#index-wrap .key-board ul{
+    margin: 0;
+    padding: 0;
+    word-spacing: 0;
+    font-size: 0;
+    letter-spacing: 0;
+}
+
+#index-wrap .key-element-wrapper{
+    display: inline-block;
+    vertical-align: top;
+    font-size: 12px;
+}
+
+#index-wrap .key-size-normal{
+    width: 7.8%;
+}
+
+#index-wrap .key-size-tab{
+    width: 10%;
+}
+
+#index-wrap .key-size-backspace{
+    width: 12%;
+}
+
+#index-wrap .key-size-caps{
+    width: 14%;
+}
+
+#index-wrap .key-size-enter{
+    width: 15.8%;
+}
+
+#index-wrap .key-size-shift-left{
+    width: 13%;
+}
+
+#index-wrap .key-size-shift-right{
+    width: 16.8%;
+}
+
+#index-wrap .key-size-control{
+    width: 9%;
+}
+
+#index-wrap .key-size-command{
+    width: 9%;
+}
+
+#index-wrap .key-size-option{
+    width: 9%;
+}
+
+#index-wrap .key-size-space{
+    width: 60%;
+    text-align: center;
+}
+
+#index-wrap .key-size-message{
+    width: 13%;
+}
+
+#index-wrap .key-element{
+}
+
+
+#index-wrap .key-element-content{
+    margin: 0;
+    text-align: center;
+    overflow: hidden;
+    color: #777;
+    position: relative;
+    text-align: center;
+    padding: 18px;
+    border: 0;
+    border-top: 1px solid #a09f97;
+    border-right: 1px solid #a09f97;
+    background: -webkit-linear-gradient(top, #f8f9f6 0%,#ecebe6 100%);
+    -webkit-box-shadow: inset 0px -1px 0px 1px rgba(255, 255, 255, 0.3);
+
+    /*background: white;*/
+    z-index: 10;
+}
+
+
+#index-wrap .key-bottom{
+    -webkit-box-shadow: 0px 5px 0px 0px #777;
+    margin-bottom: 5px;
+}
+
+#index-wrap .key-right{
+    border-right: 0;
+}
+
+#index-wrap .key-left-bottom{
+    -webkit-box-shadow: 0px 5px 0px 0px #777;
+    margin-bottom: 5px;
+    -webkit-border-radius: 0 0 0 8px;
+}
+
+
+#index-wrap .key-right-bottom{
+    border-right: 0;
+    -webkit-box-shadow: 0px 5px 0px 0px #777;
+    margin-bottom: 5px;
+    -webkit-border-radius: 0 0 8px 0;
+}
+
+#index-wrap .key-element .hover{
+    background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(44,160,202)), color-stop(1, rgb(62,184,229)) );
+    color: #fff;
+    -webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #156785, 0px 10px 5px #999;
+}
+
+#index-wrap .key-element .selected{
+    background-image: -webkit-gradient( linear, left top, left bottom, color-stop(0, rgb(44,160,202)), color-stop(1, rgb(62,184,229)) );
+    color: #fff;
+    -webkit-box-shadow: inset 0px 2px 0px 0px #0b698b, 0px 3px 0px 0px #156785, 0px 5px 3px #999;
+}
+
+#index-wrap .key-element .key-bottom.selected{
+    padding-top: 20px;
+}
+
+#index-wrap .key-element .key-right-bottom.selected{
+    padding-top: 20px;
+}
+
+#index-wrap .key-element .key-left-bottom.selected{
+    padding-top: 20px;
+}
+
+.key-hint{
+    position: absolute;
+    text-align: center;
+    color: #fff;
+    font-size: 10px;
+    z-index: 999;
+    text-shadow: 0px 0px 2px rgba(0, 0, 0, 1);
+}

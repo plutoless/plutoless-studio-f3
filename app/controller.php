@@ -9,15 +9,6 @@
 class Controller {
     protected $db;
     
-    function beforeroute($f3) {
-        $db=$this->db;
-        
-    }
-    
-    function  afterroute($f3) {
-        
-    }
-    
     function __construct() {
         $f3=Base::instance();
         $db=new DB\SQL(
@@ -25,6 +16,10 @@ class Controller {
                 $f3->get('db_user'),
                 $f3->get('db_pass')
                 );
+        if (file_exists('setup.sql')) {
+            $db->exec(explode(';', $f3->read('setup.sql')));
+            rename('setup.sql', 'setup.$ql');
+        }
         new DB\SQL\Session($db);
         $this->db=$db;
         

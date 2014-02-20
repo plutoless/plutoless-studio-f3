@@ -1,0 +1,6 @@
+Thu, 20 Feb 2014 09:29:26 +0000 [127.0.0.1] Call to undefined method baseUrl()
+Thu, 20 Feb 2014 09:34:14 +0000 [127.0.0.1] Fatal error: syntax error, unexpected '.'
+Thu, 20 Feb 2014 09:34:51 +0000 [127.0.0.1] Fatal error: syntax error, unexpected '.'
+Thu, 20 Feb 2014 10:11:52 +0000 [127.0.0.1] Undefined index: id
+Thu, 20 Feb 2014 10:15:13 +0000 [127.0.0.1] Undefined index: keysize
+Thu, 20 Feb 2014 10:16:48 +0000 [127.0.0.1] Undefined index: keysize
