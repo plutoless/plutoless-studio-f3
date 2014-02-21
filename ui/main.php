@@ -45,7 +45,7 @@
                             </div>
                         </div>
                         <div class="screen-logo">
-                            <img src="<?php //echo $this->baseUrl().'/public/images/logo.png'; ?>" />
+                            <img src="images/logo.png" />
                         </div>
                     </div>
                     <div class="screen-index-back">
