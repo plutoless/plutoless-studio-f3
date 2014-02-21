@@ -8,6 +8,10 @@
         <meta charset="UTF-8">
         <title>Test</title>
         <link rel="stylesheet" href="css/index.css" type="text/css" />
+        <link rel="stylesheet" href="css/common.css" type="text/css" />
+        <script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+        <script src="js/common.js" type="text/javascript"></script>
+        <script src="js/index.js" type="text/javascript"></script>
     </head>
     <body>
         <div id="content">
@@ -18,11 +22,9 @@
                     <div class="screen-index">
                         <div class="screen-index-inner">
                         </div>
-                        <div class="screen-index-tips">
+                        <div class="screen-index-tips fade-in">
                             <div class="avatar-wrap">
-                                <img src="<?php /*echo $this->baseUrl()
-                                        .'/public/images/tips/tips_'
-                                        .$this->rand.'.jpg';*/ ?>">
+                                <img src="images/tips/tips_{{@rand}}.jpg">
                                 <div class="msg-box-wrap">
                                     <div class="msg-box rounded">
                                         <span class="text">test message</span>
@@ -51,13 +53,13 @@
 
                             <li class="calendar-wrap">
                                 <div class="time">
-                                    <?php //echo $this->currentTime;?>
+                                    {{@date['time']}}
                                 </div>
                                 <div class="weekday">
-                                    <?php //echo $this->currentWeekday;?>
+                                    {{@date['weekday']}}
                                 </div>
                                 <div class="month">
-                                    <?php //echo $this->currentMonth;?>
+                                    {{@date['month']}}
                                 </div>
                             </li>
                             <!-- Everything beyond this layer goes after -->
@@ -97,7 +99,7 @@
                             <li id="key-{{@key['id']}}"
                                 class="key-element-wrapper key-size-{{isset(@key['keysize'])?@key['keysize']:'normal'}}">
                                 <div class="key-element">
-                                    <div class="key-element-content"
+                                    <div class="key-element-content {{isset(@key['keyclass'])?@key['keyclass']:''}}"
                                         name="{{@key['id']}}"
                                         data-keycode="{{@key['keycode']}}">
                                         {{isset(@key['alias'])?@key['alias']:@key['id']}}

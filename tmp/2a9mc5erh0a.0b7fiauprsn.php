@@ -95,7 +95,7 @@
                             <li id="key-<?php echo $key['id']; ?>"
                                 class="key-element-wrapper key-size-<?php echo isset($key['keysize'])?$key['keysize']:'normal'; ?>">
                                 <div class="key-element">
-                                    <div class="key-element-content"
+                                    <div class="key-element-content <?php echo isset($key['keyclass'])?$key['keyclass']:''; ?>"
                                         name="<?php echo $key['id']; ?>"
                                         data-keycode="<?php echo $key['keycode']; ?>">
                                         <?php echo isset($key['alias'])?$key['alias']:$key['id']; ?>

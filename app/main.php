@@ -32,7 +32,7 @@ class Main extends Controller {
             array("id"=>"I", "keycode"=>"73"),
             array("id"=>"O", "keycode"=>"79"),
             array("id"=>"P", "keycode"=>"80"),
-            array("id"=>"backspace", "keycode"=>"8", "keysize"=>"backspace", "alias"=>"BS"),
+            array("id"=>"backspace", "keycode"=>"8", "keysize"=>"backspace", "alias"=>"BS", "keyclass"=>"key-right"),
 
             array("id"=>"caps", "keycode"=>"20", "keysize"=>"caps", "alias"=>"Caps"),
             array("id"=>"A", "keycode"=>"65"), 
@@ -44,7 +44,7 @@ class Main extends Controller {
             array("id"=>"J", "keycode"=>"74"),
             array("id"=>"K", "keycode"=>"75"),
             array("id"=>"L", "keycode"=>"76"),
-            array("id"=>"enter", "keycode"=>"13", "keysize"=>"enter", "alias"=>"Enter"),
+            array("id"=>"enter", "keycode"=>"13", "keysize"=>"enter", "alias"=>"Enter", "keyclass"=>"key-right"),
 
             array("id"=>"shift-left", "keycode"=>"16", "keysize"=>"shift-left", "alias"=>"Shift"),
             array("id"=>"Z", "keycode"=>"90"), 
@@ -56,14 +56,23 @@ class Main extends Controller {
             array("id"=>"M", "keycode"=>"77"),
             array("id"=>"left-arrow", "keycode"=>"37", "alias"=>"<"),
             array("id"=>"right-arrow", "keycode"=>"39", "alias"=>">"),
-            array("id"=>"shift-right", "keycode"=>"16", "keysize"=>"shift-right", "alias"=>"Shift"),
+            array("id"=>"shift-right", "keycode"=>"16", "keysize"=>"shift-right", "alias"=>"Shift", "keyclass"=>"key-right"),
 
-            array("id"=>"ctrl", "keycode"=>"17", "keysize"=>"control", "alias"=>"Ctrl"),
-            array("id"=>"option", "keycode"=>"18", "keysize"=>"option", "alias"=>"Option"),
-            array("id"=>"command", "keycode"=>"31", "keysize"=>"command", "alias"=>"Cmd"),
-            array("id"=>"space", "keycode"=>"32", "keysize"=>"space", "alias"=>"Space"), 
-            array("id"=>"message", "keycode"=>"17", "keysize"=>"message", "alias"=>"Message"),
+            array("id"=>"ctrl", "keycode"=>"17", "keysize"=>"control", "alias"=>"Ctrl", "keyclass"=>"key-left-bottom"),
+            array("id"=>"option", "keycode"=>"18", "keysize"=>"option", "alias"=>"Option", "keyclass"=>"key-bottom"),
+            array("id"=>"command", "keycode"=>"31", "keysize"=>"command", "alias"=>"Cmd", "keyclass"=>"key-bottom"),
+            array("id"=>"space", "keycode"=>"32", "keysize"=>"space", "alias"=>"Space", "keyclass"=>"key-bottom"), 
+            array("id"=>"message", "keycode"=>"17", "keysize"=>"message", "alias"=>"Message", "keyclass"=>"key-right-bottom"),
         );
+        $date = array(
+            "month"=>date("d F"),
+            "weekday"=>date("l"),
+            "time"=>date("H:i")
+        );
+        
+        
+        $f3->set('rand', rand(2, 101));
+        $f3->set('date', $date);
         $f3->set('keys', $keys);
     }
     

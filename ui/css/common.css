@@ -1,0 +1,264 @@
+/* 
+    Document   : page
+    Created on : 06-Mar-2012, 14:40:47
+    Author     : plutoless
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+html{
+  background: url(../images/BG.png), -moz-linear-gradient(225deg, #bdbab1 0%, #b9b7ae 100%) #585858;
+  background: url(../images/BG.png), -webkit-gradient(linear, right top, left bottom, from(#bdbab1), to(#b9b7ae)) #585858;
+  height: 100%;
+}
+/*
+@font-face {
+    font-family: Helvetica Neue Lt;
+    src: url("../fonts/helveticaneueltstdultlt.otf") format("opentype");
+}
+*/
+@font-face {
+    font-family: Segoe;
+    src: url("../fonts/segoeregular.otf") format("opentype");
+}
+
+/*
+@font-face {
+    font-family: Helvetica Neue;
+    src: url("../fonts/helveticaneueltstdblkcn.otf") format("opentype");
+}
+*/
+@font-face {
+    font-family: fortunatus;
+    src: url("../fonts/fortunatus.otf") format("opentype");
+}
+@font-face {
+    font-family: Segoe Lt;
+    src: url("../fonts/segoel.otf") format("opentype");
+}
+
+body{
+  
+  /*  background: rgb(89, 184, 229);*/
+  /*background: rgb(244,13,100);*/
+  
+  /*background: rgba(224,224,224,0.5);*/
+  margin: 0;
+  color: #121314;
+  font-family: 'Helvetica Neue', "Microsoft Yahei",
+        Helvetica, sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+ul{
+  list-style-type: none;
+}
+
+#header{
+  width: 90%;
+  position: relative;
+  /*background: #fff;*/
+  height: 60px;
+  margin-left:auto;
+  margin-right: auto;
+  padding-top: 20px;
+  padding-left: 20px;
+  color: #fff;
+}
+
+
+#header .logo{
+    position: relative;
+    width: 800px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+
+#content{
+  width: 100%;
+  height: 520px;
+  overflow: visible;
+  margin: 0;
+}
+
+#bottom{
+  width: 100%;
+  text-align: center;
+  color: #505050;
+  font-size: 12px;
+}
+
+.inline{
+  display: inline;
+}
+
+.inline-block{
+  display: inline-block;
+}
+
+.rounded{
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.rounded2{
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.color1{
+    background-color: #222;
+}
+
+.color2{
+    background-color: #0c555d;
+}
+
+.color3{
+    background-color: #ffbfbf;;
+}
+
+.color4{
+    background-color: #3c81b5;
+}
+
+.color5{
+    background-color: #333333;
+}
+
+.color6{
+    background-color: #E34E50;
+}
+
+.shadow{
+    -webkit-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.05);
+    -moz-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.05);
+    box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.05);
+}
+
+.shadow2{
+    -webkit-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.1);
+}
+
+.shadow3{
+    -webkit-box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.2);
+    box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.2);
+}
+
+.shadow4{
+    -webkit-box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.3);
+    box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.3);
+}
+
+.hidden{
+    opacity: 0;
+}
+
+
+.battery{
+    position: relative;
+    width: 26px;
+    height: 12px;
+}
+
+.battery .b-body{
+    position: absolute;
+    width: 22px;
+    height: 10px;
+    border: 1px solid white;
+}
+
+.battery .b-head{
+    position: absolute;
+    width: 2px;
+    right: 0;
+    height: 3px;
+    top: 4px;
+    background: white;
+}
+
+.b-body .b-life{
+    position: relative;
+    width: 12px;
+    height: 8px;
+    background: white;
+    margin: 1px;
+}
+
+.screen-top-rounded{
+    -webkit-border-radius: 8px 8px 0 0;
+    -moz-border-radius: 8px 8px 0 0;
+    -ms-border-radius: 8px 8px 0 0;
+    -o-border-radius: 8px 8px 0 0;
+    border-radius: 8px 8px 0 0;
+}
+
+.loading{
+    background: url(../images/loading.gif) no-repeat center center;
+}
+
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-webkit-keyframes fadeOut { from { opacity:1; } to { opacity:0; } }
+@-moz-keyframes fadeOut { from { opacity:1; } to { opacity:0; } }
+@keyframes fadeOut { from { opacity:1; } to { opacity:0; } }
+@-webkit-keyframes zoomOut { from { -webkit-transform: scale(10);} to { -webkit-transform: scale(1);} }
+@-moz-keyframes zoomOut { from { -moz-transform: scale(10);} to { -moz-transform: scale(1);} }
+@keyframes zoomOut { from { transform: scale(10);} to { transform: scale(1);} }
+.fade-in{
+    opacity: 0;
+    -webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+    -moz-animation:fadeIn ease-in 1;
+    animation:fadeIn ease-in 1;
+ 
+    -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+ 
+    -webkit-animation-duration:0.6s;
+    -moz-animation-duration:0.6s;
+    animation-duration:0.6s;
+}
+
+.fade-out{
+    opacity: 1;
+    -webkit-animation:fadeOut ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+    -moz-animation:fadeOut ease-in 1;
+    animation:fadeOut ease-in 1;
+ 
+    -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+ 
+    -webkit-animation-duration:0.6s;
+    -moz-animation-duration:0.6s;
+    animation-duration:0.6s;
+}
+
+.zoom-out{
+    zoom: 1;
+    -webkit-animation:zoomOut cubic-bezier(0.190, 1.000, 0.220, 1.000) 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+    -moz-animation:zoomOut cubic-bezier(0.190, 1.000, 0.220, 1.000) 1;
+    animation:zoomOut cubic-bezier(0.190, 1.000, 0.220, 1.000) 1;
+ 
+    -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+ 
+    -webkit-animation-duration:1s;
+    -moz-animation-duration:1s;
+    animation-duration:1s;
+}
