@@ -40,9 +40,9 @@ var index = {
     },
     
     skipTipScreen : function(){
-        index.dom.tipCover.addClass("zoom-out");
-        index.dom.tipAvatar.addClass("fade-out-2");
-        index.dom.logo.addClass("logo-fade-in");
+        index.dom.tipCover.transition({scale: 1}, 600, 'easeOutExpo');
+        index.dom.tipAvatar.removeClass("fade-in").transition({opacity: 0});
+        index.dom.logo.transition({opacity:1, top: '412px'}, 500);
         $(window).off("keyup", index.skipTipScreen);
         commonFunc.dom.keyboardElements.off("mouseup", index.skipTipScreen);
         index.indexKeyboardBindings();
@@ -70,10 +70,10 @@ var index = {
             if(index.data.command.length>0)
             {
                 index.removeNavStr();
-//                if(index.data.navStr.length==0)
-//                {
-//                    index.MenuOutIndexIn();
-//                }
+                if(index.data.command.length==0)
+                {
+                    index.quitInputMode();
+                }
             }
         }
     },
@@ -87,9 +87,15 @@ var index = {
     },
     
     enterInputMode : function(){
-        index.dom.logo.removeClass("logo-fade-out").addClass("logo-fade-out");
-        index.dom.tipCover.removeClass("zoom-out-to-0").addClass("zoom-out-to-0");
-        index.dom.menuBgCanvas.removeClass("canvas-slide-in").addClass("canvas-slide-in");
+        index.dom.logo.transition({opacity:0, top:'380px'}, 300, 'easeInBack');
+        index.dom.tipCover.transition({scale:0}, 400, 'easeInBack');
+        index.dom.menuBgCanvas.transition({top: 0},600);
+    },
+    
+    quitInputMode : function(){
+        index.dom.logo.transition({opacity:1, top:'412px'});
+        index.dom.tipCover.transition({scale:1});
+        index.dom.menuBgCanvas.transition({top: '100%'}, 600, 'easeInExpo');
     },
     
     appendNavStr : function(name){
