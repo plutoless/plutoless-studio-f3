@@ -32,7 +32,7 @@ var index = {
     
     skipTipScreen : function(){
         index.dom.tipCover.addClass("zoom-out");
-        index.dom.tipAvatar.addClass("fade-out");
+        index.dom.tipAvatar.addClass("fade-out-2");
         index.dom.logo.addClass("logo-fade-in");
         $(window).off("keydown", index.skipTipScreen);
         commonFunc.dom.keyboardElements.off("mouseup", index.skipTipScreen);
