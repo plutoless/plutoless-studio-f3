@@ -31,7 +31,12 @@ var index = {
         index.dom.logo = commonFunc.dom.screenIndex.find('.screen-logo');
         index.dom.menuBgCanvas = commonFunc.dom.screenCanvas.find(".bg-wrap");
         index.dom.textArea = commonFunc.dom.screenCanvas.find('.input-wrap ul');
+        index.initTipScreen();
         index.initTipKeyboard();
+    },
+    
+    initTipScreen : function(){
+        index.dom.tipAvatar.transition({opacity:1}, 1000, 'ease-in');
     },
     
     initTipKeyboard : function(){
@@ -40,9 +45,9 @@ var index = {
     },
     
     skipTipScreen : function(){
-        index.dom.tipCover.addClass("zoom-out");
-        index.dom.tipAvatar.addClass("fade-out-2");
-        index.dom.logo.addClass("logo-fade-in");
+        index.dom.tipCover.transition({scale:1}, 600, 'cubic-bezier(0.190, 1.000, 0.220, 1.000)');
+        index.dom.tipAvatar.stop().transition({opacity:0}, 400, 'ease-out');
+        index.dom.logo.transition({opacity:1, top:'412px'},800, 'cubic-bezier(0.190, 1.000, 0.220, 1.000)');
         $(window).off("keyup", index.skipTipScreen);
         commonFunc.dom.keyboardElements.off("mouseup", index.skipTipScreen);
         index.indexKeyboardBindings();
@@ -87,9 +92,9 @@ var index = {
     },
     
     enterInputMode : function(){
-        index.dom.logo.removeClass("logo-fade-out").addClass("logo-fade-out");
-        index.dom.tipCover.removeClass("zoom-out-to-0").addClass("zoom-out-to-0");
-        index.dom.menuBgCanvas.removeClass("canvas-slide-in").addClass("canvas-slide-in");
+        index.dom.logo.stop().transition({opacity:0, top:'380px'},300, 'cubic-bezier(0.600, 0, 0.735, 0.045)');
+        index.dom.tipCover.stop().transition({scale:0}, 600, 'cubic-bezier(0.950, 0.050, 0.795, 0.035)');
+        index.dom.menuBgCanvas.stop().transition({top:0}, 800, 'cubic-bezier(0.190, 1.000, 0.220, 1.000)');
     },
     
     appendNavStr : function(name){

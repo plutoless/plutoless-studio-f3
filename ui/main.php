@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="css/common.css" type="text/css" />
         <script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
         <script src="js/jquery.easing.1.3.js" type="text/javascript"></script>
+        <script src="js/jquery.transit.min.js" type="text/javascript"></script>
         <script src="js/common.js" type="text/javascript"></script>
         <script src="js/index.js" type="text/javascript"></script>
     </head>
@@ -23,7 +24,7 @@
                     <div class="screen-index">
                         <div class="screen-index-inner">
                         </div>
-                        <div class="screen-index-tips fade-in">
+                        <div class="screen-index-tips transparent">
                             <div class="avatar-wrap">
                                 <img src="images/tips/tips_{{@rand}}.jpg">
                                 <div class="msg-box-wrap">
