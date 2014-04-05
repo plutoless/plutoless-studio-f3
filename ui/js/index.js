@@ -45,9 +45,9 @@ var index = {
     },
     
     skipTipScreen : function(){
-        index.dom.tipCover.transition({scale:1}, 600, 'cubic-bezier(0.190, 1.000, 0.220, 1.000)');
-        index.dom.tipAvatar.stop().transition({opacity:0}, 400, 'ease-out');
-        index.dom.logo.transition({opacity:1, top:'412px'},800, 'cubic-bezier(0.190, 1.000, 0.220, 1.000)');
+        index.dom.tipCover.transition({scale: 1}, 600, 'easeOutExpo');
+        index.dom.tipAvatar.stop().transition({opacity: 0});
+        index.dom.logo.transition({opacity:1, top: '412px'}, 500);
         $(window).off("keyup", index.skipTipScreen);
         commonFunc.dom.keyboardElements.off("mouseup", index.skipTipScreen);
         index.indexKeyboardBindings();
@@ -75,10 +75,10 @@ var index = {
             if(index.data.command.length>0)
             {
                 index.removeNavStr();
-//                if(index.data.navStr.length==0)
-//                {
-//                    index.MenuOutIndexIn();
-//                }
+                if(index.data.command.length==0)
+                {
+                    index.quitInputMode();
+                }
             }
         }
     },
@@ -92,9 +92,15 @@ var index = {
     },
     
     enterInputMode : function(){
-        index.dom.logo.stop().transition({opacity:0, top:'380px'},300, 'cubic-bezier(0.600, 0, 0.735, 0.045)');
-        index.dom.tipCover.stop().transition({scale:0}, 600, 'cubic-bezier(0.950, 0.050, 0.795, 0.035)');
-        index.dom.menuBgCanvas.stop().transition({top:0}, 800, 'cubic-bezier(0.190, 1.000, 0.220, 1.000)');
+        index.dom.logo.stop().transition({opacity:0, top:'380px'}, 300, 'easeInBack');
+        index.dom.tipCover.stop().transition({scale:0}, 400, 'easeInBack');
+        index.dom.menuBgCanvas.stop().transition({top: 0},600);
+    },
+    
+    quitInputMode : function(){
+        index.dom.logo.stop().transition({opacity:1, top:'412px'});
+        index.dom.tipCover.stop().transition({scale:1});
+        index.dom.menuBgCanvas.stop().transition({top: '100%'}, 600, 'easeInExpo');
     },
     
     appendNavStr : function(name){
