@@ -16,6 +16,19 @@
         <script src="js/common.js" type="text/javascript"></script>
         <script src="js/index.js" type="text/javascript"></script>
     </head>
+    <script>
+        var title, initial, url;
+        <repeat group="{{ @menus }}" value="{{ @menu }}">
+            title = "{{@menu['title']}}";
+            url = "{{@menu['addr']}}";
+            initial = title.substring(0,1).toUpperCase();
+            var menuItem = {title : title, url : url};
+            if(!index.data.menus[initial]){
+                index.data.menus[initial] = [];
+            }
+            index.data.menus[initial].push(menuItem);
+        </repeat>
+    </script>
     <body>
         <div id="content">
             <div id="index-wrap">
@@ -88,7 +101,7 @@
                     </div>
                     <div class="screen-index-float">
                         <ul class="screen-front-widgets">
-                            <li class="menu-wrap">
+                            <li class="menu-wrap transparent">
                             </li>
                             <li class="subpage-wrap">
 

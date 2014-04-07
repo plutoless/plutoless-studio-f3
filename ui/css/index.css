@@ -273,12 +273,11 @@ root {
     position: absolute;
     width: 780px;
     text-align: center;
-    top: 90px;
+    top: 110px;
     font-size: 14px;
     font-family: "Segoe",Helvetica, serif;
     text-shadow: 1px 1px 1px rgba(0,0,0, 0.3);
     color: white;
-    display: none;
 }
 
 .menu-wrap .menu-element-wrap{

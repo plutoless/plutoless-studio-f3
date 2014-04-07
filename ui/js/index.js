@@ -15,11 +15,13 @@ var index = {
         tipAvatar: 0,
         menuBgCanvas : 0,
         logo: 0,
-        textArea: 0
+        textArea: 0,
+        menuWrapper : 0
     },
     
     data : {
-        command : ""
+        command : "",
+        menus : {}
     },
     
     init : function(){
@@ -31,6 +33,7 @@ var index = {
         index.dom.logo = commonFunc.dom.screenIndex.find('.screen-logo');
         index.dom.menuBgCanvas = commonFunc.dom.screenCanvas.find(".bg-wrap");
         index.dom.textArea = commonFunc.dom.screenCanvas.find('.input-wrap ul');
+        index.dom.menuWrapper = commonFunc.dom.screenContent.find('.menu-wrap');
         index.initTipScreen();
         index.initTipKeyboard();
     },
@@ -63,10 +66,11 @@ var index = {
             args.event.preventDefault();
         }
         if(args.type === "char"){
+            var name  = args.domElement.attr("name");
             if(index.data.command.length === 0){
+                index.dom.menuWrapper.html($(index.generateMenuItems(name)));
                 index.enterInputMode();
             }
-            var name  = args.domElement.attr("name");
             index.appendNavStr(name);
         }
         
@@ -91,16 +95,34 @@ var index = {
         }
     },
     
+    generateMenuItems : function(initial){
+        var items = index.data.menus[initial];
+        var resultHtml = "";
+        
+        if(!items){
+            return '<div class="menu-message">No element for key '+initial+'</div>';
+        }
+        
+        for(var i = 0; i < items.length; i++){
+            resultHtml = resultHtml + '<div class="menu-element-wrap">'+
+               '<div class="menu-element-pic"><img src="images/menu/'+items[i].title+'.png"/></div>'+
+               '<div class="menu-element-text">'+items[i].title+'</div></div>';
+        }
+        return resultHtml;
+    },
+    
     enterInputMode : function(){
         index.dom.logo.stop().transition({opacity:0, top:'380px'}, 300, 'easeInBack');
         index.dom.tipCover.stop().transition({scale:0}, 400, 'easeInBack');
         index.dom.menuBgCanvas.stop().transition({top: 0},600);
+        index.dom.menuWrapper.stop().transition({opacity: 1, top: "70px"}, 600);
     },
     
     quitInputMode : function(){
         index.dom.logo.stop().transition({opacity:1, top:'412px'});
         index.dom.tipCover.stop().transition({scale:1});
-        index.dom.menuBgCanvas.stop().transition({top: '100%'}, 600, 'easeInExpo');
+        index.dom.menuBgCanvas.stop().transition({top: '100%'}, 600);
+        index.dom.menuWrapper.stop().transition({opacity: 0, top: "110px"}, 600);
     },
     
     appendNavStr : function(name){

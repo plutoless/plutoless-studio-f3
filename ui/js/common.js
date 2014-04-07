@@ -4,6 +4,7 @@ var commonFunc = {
         mainContent : 0,
         screenIndex : 0,
         screenCanvas : 0,
+        screenContent : 0,
         downKey : 0
     },
     
@@ -15,6 +16,7 @@ var commonFunc = {
     initCommonDoms : function(){
         commonFunc.dom.screenIndex = $('#index-wrap .screen-index');
         commonFunc.dom.screenCanvas = $('#index-wrap .screen-index-back');
+        commonFunc.dom.screenContent = $('#index-wrap .screen-index-float');
         commonFunc.dom.keyboardElements = $('#index-wrap .key-board .key-element-content');
     },
     
