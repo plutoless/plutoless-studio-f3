@@ -13,7 +13,7 @@ class Main extends Controller {
     //! HTTP route post-processor
     function afterroute() {
         // Render HTML layout
-        echo Template::instance()->render('main.php');
+        echo Template::instance()->render('main_view.php');
     }
     
     function index($f3, $args) {

@@ -25,6 +25,19 @@ var commonFunc = {
         commonFunc.getKeyboardPos();
     },
     
+    deactivatePage : function(){
+        commonFunc.delegate.keydownDelegate = null;
+        commonFunc.delegate.keyupDelegate = null;
+    },
+    
+    showLoading: function(area)
+    {
+        var h = area.height();
+        var w = area.width();
+        var loadingHtml = $('<div>').css('width', w).css('height',h).addClass('loading');
+        area.html(loadingHtml);
+    },
+    
     getKeyboardPos : function(){
         var boardH = commonFunc.dom.mainContent.height();
         var winH = $(window).height();

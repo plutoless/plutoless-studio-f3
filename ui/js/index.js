@@ -16,12 +16,14 @@ var index = {
         menuBgCanvas : 0,
         logo: 0,
         textArea: 0,
-        menuWrapper : 0
+        menuWrapper : 0,
+        contentWrapper : 0
     },
     
     data : {
         command : "",
-        menus : {}
+        menus : {},
+        loadLock : false
     },
     
     init : function(){
@@ -34,9 +36,11 @@ var index = {
         index.dom.menuBgCanvas = commonFunc.dom.screenCanvas.find(".bg-wrap");
         index.dom.textArea = commonFunc.dom.screenCanvas.find('.input-wrap ul');
         index.dom.menuWrapper = commonFunc.dom.screenContent.find('.menu-wrap');
+        index.dom.contentWrapper = commonFunc.dom.screenCanvas.find('.subpage-wrap');
         index.initTipScreen();
         index.initTipKeyboard();
     },
+    
     
     initTipScreen : function(){
         index.dom.tipAvatar.transition({opacity:1}, 1000, 'ease-in');
@@ -79,9 +83,21 @@ var index = {
             if(index.data.command.length>0)
             {
                 index.removeNavStr();
-                if(index.data.command.length==0)
+                if(index.data.command.length===0)
                 {
                     index.quitInputMode();
+                }
+            }
+        }
+        
+        if(args.type === "enter"){
+            if(index.data.command.length>0)
+            {
+                var initial = index.data.command.substring(0,1).toUpperCase();
+                var menuItems = index.data.menus[initial];
+                for(var i = 0; i < menuItems.length && menuItems; i++){
+                    if(index.data.command === menuItems[i].title)
+                        index.navigatePage();
                 }
             }
         }
@@ -93,6 +109,19 @@ var index = {
             index.dom.textArea.find('li').
                 animate({'vertical-align':0},{duration:800,easing:"easeOutBounce"});
         }
+    },
+    
+    navigatePage : function(){
+        if(index.data.loadLock)
+            return;
+        
+        index.data.loadLock = true;
+        commonFunc.deactivatePage();
+        
+        index.dom.menuWrapper.transition({opacity:0});
+        index.dom.contentWrapper.transition({height: "265px"},function(){
+                commonFunc.showLoading($(this));
+        });
     },
     
     generateMenuItems : function(initial){

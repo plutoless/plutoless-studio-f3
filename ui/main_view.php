@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-<?php
-
-?>
 <html>
     <head>
         <base href="{{ @SCHEME.'://'.@HOST.@BASE.'/'.@UI }}" />
