@@ -10,8 +10,6 @@ class Post extends Controller {
 
     
     function beforeroute() {
-        $feed = 'http://stackoverflow.com/opensearch.xml';
-        $feed_to_array = (array) simplexml_load_file($feed);
     }
     
     //! HTTP route post-processor
@@ -22,6 +20,10 @@ class Post extends Controller {
     
     function view($f3, $args) {
         $db=$this->db;
+        $f3->set('posts', $db->exec('SELECT posts.tid, posts.title, posts.text AS content, 
+            posts.author, posts.ts, types.text AS type FROM 
+            posts LEFT JOIN types ON posts.tid=types.tid ORDER BY ts'));
+        
     }
     
     function error($f3) {

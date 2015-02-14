@@ -27,6 +27,7 @@ var index = {
     },
     
     init : function(){
+        commonFunc.initjQuery();
         commonFunc.initScreen();
         commonFunc.initCommonDoms();
         commonFunc.commonKeyboardBindings();
@@ -52,9 +53,10 @@ var index = {
     },
     
     skipTipScreen : function(){
-        index.dom.tipCover.transition({scale: 1}, 600, 'easeOutExpo');
+        tram(index.dom.tipCover).stop().add('scale 600ms ease-out-expo').start({scale: 1});
+        // index.dom.tipCover.stop().transition({scale: 1}, 600, 'easeOutExpo');
         index.dom.tipAvatar.stop().transition({opacity: 0});
-        index.dom.logo.transition({opacity:1, top: '412px'}, 500);
+        index.dom.logo.stop().transition({opacity:1, top: '412px'}, 500);
         $(window).off("keyup", index.skipTipScreen);
         commonFunc.dom.keyboardElements.off("mouseup", index.skipTipScreen);
         index.indexKeyboardBindings();
@@ -95,9 +97,17 @@ var index = {
             {
                 var initial = index.data.command.substring(0,1).toUpperCase();
                 var menuItems = index.data.menus[initial];
+                var command = index.data.command ? index.data.command : "";
+                command = command.toUpperCase();
                 for(var i = 0; i < menuItems.length && menuItems; i++){
-                    if(index.data.command === menuItems[i].title)
-                        index.navigatePage();
+                    var title = menuItems[i].title.toUpperCase();
+                    if(command === title) {
+                        if(command === "fightclub") {
+                            index.navigatePage(menuItems[i].url);
+                        } else {
+                            index.navigatePage("../" + menuItems[i].url);
+                        }
+                    }
                 }
             }
         }
@@ -111,7 +121,7 @@ var index = {
         }
     },
     
-    navigatePage : function(){
+    navigatePage : function(link){
         if(index.data.loadLock)
             return;
         
@@ -120,7 +130,11 @@ var index = {
         
         index.dom.menuWrapper.transition({opacity:0});
         index.dom.contentWrapper.transition({height: "265px"},function(){
-                commonFunc.showLoading($(this));
+            commonFunc.showLoading($(this));
+            $.ajaxSetup({cache: false});
+            $(this).load(link, function(){
+                index.data.loadLock = false;
+            });
         });
     },
     
@@ -134,7 +148,7 @@ var index = {
         
         for(var i = 0; i < items.length; i++){
             resultHtml = resultHtml + '<div class="menu-element-wrap">'+
-               '<div class="menu-element-pic"><img src="images/menu/'+items[i].title+'.png"/></div>'+
+               '<div class="menu-element-pic"><img src="images/menu/'+items[i].thumbnail+'.png"/></div>'+
                '<div class="menu-element-text">'+items[i].title+'</div></div>';
         }
         return resultHtml;
@@ -143,15 +157,15 @@ var index = {
     enterInputMode : function(){
         index.dom.logo.stop().transition({opacity:0, top:'380px'}, 300, 'easeInBack');
         index.dom.tipCover.stop().transition({scale:0}, 400, 'easeInBack');
-        index.dom.menuBgCanvas.stop().transition({top: 0},600);
-        index.dom.menuWrapper.stop().transition({opacity: 1, top: "70px"}, 600);
+        tram(index.dom.menuBgCanvas).stop().add('top 600ms ease-in-out').start({top: 0});
+        tram(index.dom.menuWrapper).stop().add('opacity 600ms ease-in-out').add('top 600ms ease-in-out').start({opacity: 1, top: "70px"});
     },
     
     quitInputMode : function(){
-        index.dom.logo.stop().transition({opacity:1, top:'412px'});
-        index.dom.tipCover.stop().transition({scale:1});
-        index.dom.menuBgCanvas.stop().transition({top: '100%'}, 600);
-        index.dom.menuWrapper.stop().transition({opacity: 0, top: "110px"}, 600);
+        tram(index.dom.logo).stop().add('opacity 300ms ease-in-out').add('top 300ms ease-in-out').start({opacity:1, top:'412px'});
+        tram(index.dom.tipCover).stop().add('scale 400ms ease-in-out').start({scale: 1});
+        tram(index.dom.menuBgCanvas).stop().add('top 600ms ease-in-out').start({top: '100%'});
+        tram(index.dom.menuWrapper).stop().add('opacity 600ms ease-in-out').add('top 600ms ease-in-out').start({opacity: 0, top: "110px"});
     },
     
     appendNavStr : function(name){

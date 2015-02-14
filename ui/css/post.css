@@ -70,7 +70,7 @@
 
 
 .post-left .type{
-    background: #EEE;
+    color: #EEE;
 }
 
 .post-list li .post-right{
@@ -119,46 +119,4 @@
 .content img{
     width: 580px;
     height: auto;
-}
-
-dl.zend_form dt {
-  float: left;
-  clear: left;
-  text-align: right;
-}
-
-dl.zend_form dt label.required {
-
-}
-
-dl.zend_form dd {
-  text-align: left;
-  padding-left: 5px;
-}
-
-dl.zend_form #title-element input {
-  width: 600px;
-  margin-bottom: 5px;
-}
-
-dl.zend_form #text-element textarea {
-  width: 600px;
-  height: 400px;
-}
-
-dl.zend_form #submit-element input {
-  text-align: left;
-}
-
-dl.zend_form dd ul.errors {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-dl.zend_form dd ul.errors li {
-  float: left;
-  margin: 0 0.15em;
-  font-size: 12px;
-  color: #666666;
 }

@@ -3,23 +3,28 @@
     <head>
         <base href="{{ @SCHEME.'://'.@HOST.@BASE.'/'.@UI }}" />
         <meta charset="UTF-8">
-        <title>Test</title>
+        <title>Plutoless Studio</title>
+        <link rel="shortcut icon" href="images/favicon.ico">
         <link rel="stylesheet" href="css/index.css" type="text/css" />
         <link rel="stylesheet" href="css/common.css" type="text/css" />
+        <link rel="stylesheet" href="css/jquery.jscrollpane.css" type="text/css" />
         <script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
         <script src="js/jquery.transit.min.js" type="text/javascript"></script>
+        <script src="js/tram.min.js" type="text/javascript"></script>
         <script src="js/jquery.easing.1.3.js" type="text/javascript"></script>
         <script src="js/jquery.transit.min.js" type="text/javascript"></script>
         <script src="js/common.js" type="text/javascript"></script>
         <script src="js/index.js" type="text/javascript"></script>
+        <script src="js/jquery.jscrollpane.min.js" type="text/javascript"></script>
     </head>
     <script>
-        var title, initial, url;
+        var title, initial, url, thumbnail;
         <repeat group="{{ @menus }}" value="{{ @menu }}">
             title = "{{@menu['title']}}";
             url = "{{@menu['addr']}}";
+            thumbnail = "{{@menu['thumbnail']}}";
             initial = title.substring(0,1).toUpperCase();
-            var menuItem = {title : title, url : url};
+            var menuItem = {title : title, url : url, thumbnail : thumbnail};
             if(!index.data.menus[initial]){
                 index.data.menus[initial] = [];
             }
@@ -132,5 +137,7 @@
 
         </div>
         
+        <div id="bottom">Powered by fat free framework</div>
+        <div id="bottom">© 2013 plutoless-studio</div>
     </body>
 </html>

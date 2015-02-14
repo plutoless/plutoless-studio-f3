@@ -13,6 +13,12 @@ var commonFunc = {
         keyupDelegate : null
     },
     
+    initjQuery : function(){
+        $.ajaxPrefilter(function( options, originalOptions, jqXHR ) {
+            options.async = true;
+        });
+    },
+
     initCommonDoms : function(){
         commonFunc.dom.screenIndex = $('#index-wrap .screen-index');
         commonFunc.dom.screenCanvas = $('#index-wrap .screen-index-back');
@@ -73,7 +79,9 @@ var commonFunc = {
         $(document).on("keydown", function(e){
             var key = commonFunc.getKeyByKeycode(e.keyCode);
             var keyDom = key.domElement;
-            keyDom.addClass("selected");
+            if(keyDom) {
+                keyDom.addClass("selected");
+            }
             key.event = e;
             commonFunc.dom.downKey = key;
             commonFunc.runKeydownActionDelegate(key);
@@ -121,6 +129,6 @@ var commonFunc = {
           type = "enter";
         }
         
-        return {domElement: key, type: type, event:null};
+        return {domElement: key, type: type, event:null, keycode: keycode};
     }
 };

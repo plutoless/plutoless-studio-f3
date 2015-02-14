@@ -4,3 +4,6 @@ CREATE TABLE IF NOT EXISTS menus (
         addr VARCHAR(50),
         PRIMARY KEY(mid)
 );
+
+INSERT INTO `studio`.`menus` (`mid`, `title`, `addr`) VALUES (NULL, 'Post', 'post');
+INSERT INTO `studio`.`menus` (`mid`, `title`, `addr`) VALUES (NULL, 'Project', 'project');
