@@ -29,9 +29,9 @@ root {
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
     border-radius: 8px;
-    -webkit-box-shadow: 0px 6px 8px #777;
-    -moz-box-shadow: 0px 6px 8px #777;
-    box-shadow: 0px 6px 8px #777;
+    -webkit-box-shadow: 0px 3px 8px #777;
+    -moz-box-shadow: 0px 3px 8px #777;
+    box-shadow: 0px 3px 8px #777;
     z-index: 0;
 }
 
@@ -408,6 +408,12 @@ root {
     box-shadow: inset 0px -1px 0px 1px rgba(255, 255, 255, 0.3);
     /*background: white;*/
     z-index: 10;
+    cursor: pointer;
+}
+
+#index-wrap .key-element-content.disabled{
+    color: #ddd;
+    cursor: not-allowed;
 }
 
 

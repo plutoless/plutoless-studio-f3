@@ -23,7 +23,8 @@ var index = {
     data : {
         command : "",
         menus : {},
-        loadLock : false
+        loadLock : false,
+        hints : {all : true}
     },
     
     init : function(){
@@ -31,6 +32,7 @@ var index = {
         commonFunc.initScreen();
         commonFunc.initCommonDoms();
         commonFunc.commonKeyboardBindings();
+        commonFunc.generateHints(index.data.hints);
         index.dom.tipCover = commonFunc.dom.screenIndex.find(".screen-index-inner");
         index.dom.tipAvatar = commonFunc.dom.screenIndex.find('.screen-index-tips');
         index.dom.logo = commonFunc.dom.screenIndex.find('.screen-logo');
@@ -186,5 +188,11 @@ var index = {
             index.data.command = index.data.command.substring(0, index.data.command.length-1);
         var toDelete = index.dom.textArea.find('li.in-use').last();
         toDelete.remove();
-    }
+    },
+
+    clearNavStr : function()
+    {
+        index.data.command = "";
+        index.dom.textArea.find('li.in-use').remove();
+    },
 };

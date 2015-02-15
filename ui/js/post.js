@@ -7,12 +7,21 @@ var post = {
     dom : {
         postContent : 0,
         posts : 0,
-        postList : 0
+        postList : 0,
+        currentPost : 0,
+        currentPostSlider : 0
     },
     
     data : {
         api : new Array(),
-        scrollBy : 1
+        scrollBy : 1,
+        hints : {
+            W : 'Scroll Up',
+            S : 'Scroll Down',
+            A : 'Prev',
+            D : 'Next',
+            backspace : 'Home'
+        }
     },
     
     init : function(){
@@ -32,6 +41,8 @@ var post = {
 
         post.dom.postContent.stop().transition({opacity: 1}, 400, "in-out");
         post.postKeyboardBindings();
+
+        commonFunc.generateHints(post.data.hints);
         // debugger;
     },
 
@@ -54,8 +65,19 @@ var post = {
                 case 83:
                     post.scrollPostDown(post.dom.currentPostSlider);
                     post.data.scrollBy++;
+                    break;
+                case 65:
+                    post.prevPost(post.dom.currentPost);
+                    break;
+                case 68:
+                    post.nextPost(post.dom.currentPost);
+                    break;
                 break;
             }
+        }
+
+        if(args.type === "backspace") {
+            commonFunc.backToIndex();
         }
     },
 
@@ -65,6 +87,44 @@ var post = {
         }
         post.data.scrollBy = 1;
     },
+
+    prevPost : function(currentObject)
+    {
+        var animTime = 600;
+        var object = currentObject.prev('.post');
+        if(object.length)
+        {
+            var left = object.position().left;
+            var scrollLeft = post.dom.postList.scrollLeft();
+            /*
+            object.css("opacity", 0);
+            currentObject.stop(true,true).animate({opacity: 0},animTime);
+            object.stop(true,true).animate({opacity: 1},animTime);*/
+            post.dom.currentPost = object;
+            var index = parseInt(object.attr('sindex'));
+            post.dom.currentPostSlider = post.data.api[index];
+            tram(post.dom.postList).stop(true,true).add('scale 600ms ease-in-out').start({scrollLeft : scrollLeft + left});
+        }
+    },
+
+    nextPost : function(currentObject)
+    {
+        var animTime = 600;
+        var object = currentObject.next('.post');
+        if(object.length)
+        {
+            var left = object.position().left;
+            var scrollLeft = post.dom.postList.scrollLeft();
+            /*object.css("opacity", 0);
+            currentObject.stop(true,true).animate({opacity: 0},animTime);
+            object.stop(true,true).animate({opacity: 1},animTime);*/
+            post.dom.currentPost = object;
+            var index = parseInt(object.attr('sindex'));
+            post.dom.currentPostSlider = post.data.api[index];
+            tram(post.dom.postList).stop(true,true).add('scale 600ms ease-in-out').start({scrollLeft : scrollLeft + left});
+        }
+    },
+
 
     scrollPostDown : function(currentAPI)
     {

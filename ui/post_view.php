@@ -37,7 +37,7 @@
                                         </div>
                                     </div>
                                     <div class="content">
-                                        <span>time</span><br><br>
+                                        <span>{{date("M d, Y", strtotime(@$post['ts']))." at ".date("h:i", strtotime(@$post['ts']))}}</span><br><br>
                                         {{nl2br(@post['content'])}}
                             </div>
                                 </div>
