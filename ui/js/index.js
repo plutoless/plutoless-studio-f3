@@ -40,6 +40,7 @@ var index = {
         index.dom.textArea = commonFunc.dom.screenCanvas.find('.input-wrap ul');
         index.dom.menuWrapper = commonFunc.dom.screenContent.find('.menu-wrap');
         index.dom.contentWrapper = commonFunc.dom.screenCanvas.find('.subpage-wrap');
+        index.dom.frameWrapper = commonFunc.dom.screenContent.find('.subpage-wrap');
         index.initTipScreen();
         index.initTipKeyboard();
     },
@@ -104,11 +105,12 @@ var index = {
                 for(var i = 0; i < menuItems.length && menuItems; i++){
                     var title = menuItems[i].title.toUpperCase();
                     if(command === title) {
-                        if(command === "fightclub") {
-                            index.navigatePage(menuItems[i].url);
-                        } else {
-                            index.navigatePage("../" + menuItems[i].url);
+                        var url = "../" + menuItems[i].url;
+                        var src = menuItems[i].src;
+                        if(menuItems[i].url === "frame") {
+                            url = url + "/" + src;
                         }
+                        index.navigatePage(url);
                     }
                 }
             }

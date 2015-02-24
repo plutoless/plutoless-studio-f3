@@ -18,13 +18,14 @@
         <script src="js/jquery.jscrollpane.min.js" type="text/javascript"></script>
     </head>
     <script>
-        var title, initial, url, thumbnail;
+        var title, initial, url, thumbnail, src;
         <repeat group="{{ @menus }}" value="{{ @menu }}">
             title = "{{@menu['title']}}";
             url = "{{@menu['addr']}}";
             thumbnail = "{{@menu['thumbnail']}}";
+            src = "{{@menu['src']}}";
             initial = title.substring(0,1).toUpperCase();
-            var menuItem = {title : title, url : url, thumbnail : thumbnail};
+            var menuItem = {title : title, url : url, thumbnail : thumbnail, src : src};
             if(!index.data.menus[initial]){
                 index.data.menus[initial] = [];
             }
@@ -109,6 +110,8 @@
 
                             </li>
                         </ul>
+                    </div>
+                    <div class="screen-index-edge">
                     </div>
                 </div>
                 <div class="key-board">       
